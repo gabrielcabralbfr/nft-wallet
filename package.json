@@ -25,6 +25,8 @@
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "@nfteyez/sol-rayz": "^0.10.2",
+    "@solana/web3.js": "^1.36.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
@@ -43,7 +45,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nestjs": "^1.2.3",
     "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
     "jest": "^27.2.5",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.20",
