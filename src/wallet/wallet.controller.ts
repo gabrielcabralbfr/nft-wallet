@@ -7,7 +7,7 @@ export class WalletController {
     /**
      *
      */
-    constructor(private walletService: WalletService) {
+    constructor(private readonly walletService: WalletService) {
 
     }
 
