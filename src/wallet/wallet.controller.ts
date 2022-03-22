@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { WalletService } from './wallet.service';
 
 @Controller('wallet')
@@ -11,8 +11,12 @@ export class WalletController {
 
     }
 
-    @Get()
-    getHello(): any {
+    @Get(':walletId')
+    getNftsFromWallet(@Param() params): any {
+        const walletId = params.walletId
+        console.log(params);
+        
+        if (!walletId) throw new Error("Missing wallet id")
         return this.walletService.getNftsFromWallet();
     }
 }
