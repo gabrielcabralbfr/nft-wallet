@@ -1,34 +1,33 @@
-# Running 
-## With docker
+# Running With docker
 ### at root directory, run 
 ```bash
  docker build -t nest-server . 
  ```
 
-## With docker compose
+# Running with docker compose
 ### at root directory, run 
 ```bash
  docker run -it -p 3000:3000 nest-server
  ```
 
 
-## Manually
+# Running manually
 
-## at root directory, run 
+### at root directory, run 
 ```
 bash npm install 
 ```
 
-## run 
+### after installing dependencies, run 
 ```bash
  npm start 
  ```
 
 
-# Checking if it's running
+# Check if it's running
 ```bash
 curl \
   -H 'Content-Type: application/json' \
   -X GET \
-  http://localhost:3000/
+  http://localhost:3000
  ```
