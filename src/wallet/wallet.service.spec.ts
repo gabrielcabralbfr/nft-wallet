@@ -15,4 +15,8 @@ describe('WalletService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should return an array of nfts', async () => {
+    expect(await service.getNftsFromWallet()).toBeDefined();
+  });
 });
