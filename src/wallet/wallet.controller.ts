@@ -1,4 +1,5 @@
-import { CacheInterceptor, Controller, Get, Param, UseInterceptors } from '@nestjs/common';
+import { CacheInterceptor, Controller, Get, Param, UseGuards, UseInterceptors } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwt.auth.guard';
 import { WalletService } from './wallet.service';
 
 @Controller('wallet')
@@ -12,7 +13,8 @@ export class WalletController {
     }
 
     @Get(':walletId')
-    // @UseInterceptors(CacheInterceptor)
+    @UseInterceptors(CacheInterceptor)
+    @UseGuards(JwtAuthGuard)
     getNftsFromWallet(@Param() params): any {
         const { walletId } = params
         if (!walletId) return { error: true, message: "missing wallet id", status: 400 }

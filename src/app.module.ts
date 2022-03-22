@@ -7,17 +7,17 @@ import { WalletController } from './wallet/wallet.controller';
 import { WalletService } from './wallet/wallet.service';
 
 
-import type { RedisClientOptions } from 'redis';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 import * as redisStore from 'cache-manager-redis-store';
 
 @Module({
   imports: [
     ThrottlerModule.forRoot({
       ttl: 60,
-      limit: 3,
+      limit: 10,
     }),
     CacheModule.registerAsync({
-      imports: [],
       useFactory: async () => ({
         ttl: 86000,
         store: redisStore,
@@ -25,7 +25,9 @@ import * as redisStore from 'cache-manager-redis-store';
         port: '6379'
       }),
       inject: [],
-    })
+    }),
+    AuthModule,
+    UsersModule
   ],
   controllers: [AppController, WalletController],
   providers: [AppService, WalletService,
