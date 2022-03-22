@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
 
 import {
   resolveToWalletAddress,
@@ -8,7 +8,16 @@ import {
 @Injectable()
 export class WalletService {
 
+  /**
+   *
+   */
+  constructor() {
+    
+    
+  }
+
   async getNftsFromWallet(address = "NftEyez.sol") {
+    
 
     const publicAddress = await resolveToWalletAddress({
       text: address
@@ -17,6 +26,7 @@ export class WalletService {
     const nftArray = await getParsedNftAccountsByOwner({
       publicAddress,
     });
+
     return nftArray
   }
 }

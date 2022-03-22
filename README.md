@@ -1,14 +1,3 @@
-# Running With docker
-at root directory, run build command 
-```bash
- docker build -t nest-server . 
- ```
-
-after build, the run command:
-```bash
- docker run -it -p 3000:3000 nest-server
- ```
-
 # Running with docker compose
 at root directory, run 
 ```bash
@@ -17,6 +6,16 @@ at root directory, run
 
 
 # Running manually
+
+First, you should be running [Redis](https://redis.io/).
+
+Then, you should configure Redis on app.module.ts
+```
+socket: {
+          host: 'localhost',
+          port: 6379,
+        }
+```
 
 at root directory, run 
 ```bash

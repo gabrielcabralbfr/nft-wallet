@@ -1,6 +1,22 @@
-version: "3.9" 
+version: "3.9"
 services:
+  redis-compose:
+    image: redis
+    command: [ "redis-server", "--bind", "redis", "--port", "6379" ]
+    hostname: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - webnet
   api:
     build: .
     ports:
       - "3000:3000"
+    links:
+      - redis-compose
+    depends_on:
+      - redis-compose
+    networks:
+      - webnet
+networks:
+  webnet:
