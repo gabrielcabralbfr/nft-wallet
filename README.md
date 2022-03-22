@@ -1,24 +1,29 @@
 # Running With docker
-### at root directory, run 
+at root directory, run build command 
 ```bash
  docker build -t nest-server . 
  ```
 
-# Running with docker compose
-### at root directory, run 
+after build, the run command:
 ```bash
  docker run -it -p 3000:3000 nest-server
+ ```
+
+# Running with docker compose
+at root directory, run 
+```bash
+ docker-compose up
  ```
 
 
 # Running manually
 
-### at root directory, run 
-```
-bash npm install 
+at root directory, run 
+```bash
+npm install 
 ```
 
-### after installing dependencies, run 
+after installing dependencies, run 
 ```bash
  npm start 
  ```
