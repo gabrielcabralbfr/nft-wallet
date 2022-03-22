@@ -13,10 +13,8 @@ export class WalletController {
 
     @Get(':walletId')
     getNftsFromWallet(@Param() params): any {
-        const walletId = params.walletId
-        console.log(params);
-        
-        if (!walletId) throw new Error("Missing wallet id")
-        return this.walletService.getNftsFromWallet();
+        const { walletId } = params
+        if (!walletId) return { error: true, message: "missing wallet id", status: 400 }
+        return this.walletService.getNftsFromWallet(walletId);
     }
 }

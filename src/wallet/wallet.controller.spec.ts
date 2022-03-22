@@ -17,4 +17,13 @@ describe('WalletController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  it('should throw an error when wallet id is null', () => {
+    expect(controller.getNftsFromWallet({ walletId: null })).toStrictEqual({ error: true, message: "missing wallet id", status: 400 })
+  });
+
+  it('should return nfts when provided valid wallet id', async () => {
+    const nfts = await controller.getNftsFromWallet({ walletId: "NftEyez.sol" })
+    expect(nfts).toBeInstanceOf(Array)
+  })
 });
